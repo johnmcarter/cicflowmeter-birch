@@ -3,10 +3,15 @@
 This repo contains a network sensor to track packet flows on Linux distributions. The original source code can be found at https://gitlab.com/hieulw/cicflowmeter/-/tree/master/src/cicflowmeter. This repo was forked because there are persistent bugs in the original source code that aren't fixed.
 
 ## Installation
+Install cicflowmeter from PyPi and clone this repo:
 ```
+pip3 install cicflowmeter
 git clone https://github.com/johnmcarter/cicflowmeter-birch.git
-cd cicflowmeter-birch
-python3 setup.py install
+```
+
+Then overwrite the source files from the pip install:
+```
+cp -r cicflowmeter-birch/*  /usr/local/lib/python3.9/dist-packages/cicflowmeter/
 ```
 
 ## Usage
