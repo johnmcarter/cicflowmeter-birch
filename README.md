@@ -30,3 +30,7 @@ optional arguments:
 
 ## Reference 
 https://www.unb.ca/cic/research/applications.html#CICFlowMeter
+
+
+Last modified: 15 December 2021
+Last tested on: October 2021 release of Raspberry Pi OS
