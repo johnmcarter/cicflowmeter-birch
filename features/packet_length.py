@@ -1,6 +1,6 @@
 '''
 Created: 2021/12/15 19:22:29
-Last modified: 2021/12/20 11:24:43
+Last modified: 2021/12/20 11:38:34
 '''
 
 import numpy
@@ -67,7 +67,10 @@ class PacketLength:
             packet_lengths (List[int]):
 
         """
-        return min(self.get_header_length(packet_direction), 0)
+        try:
+            return min(self.get_header_length(packet_direction))
+        except:
+            return 0
 
     def get_max(self, packet_direction=None) -> int:
         """Max packet lengths in flow direction.
@@ -91,8 +94,8 @@ class PacketLength:
         """
 
         try:
-            return min(self.get_packet_length(packet_direction), 0)
-        except ValueError:
+            return min(self.get_packet_length(packet_direction))
+        except:
             return 0
 
     def get_total(self, packet_direction=None) -> int:
