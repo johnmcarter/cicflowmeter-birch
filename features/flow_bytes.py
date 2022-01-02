@@ -268,8 +268,11 @@ class FlowBytes:
                 )
         else:
             if self.feature.backward_bulk_count != 0:
-                return (
-                    self.feature.backward_bulk_size
-                    / self.feature.backward_bulk_duration
-                )
+                try:
+                    return (
+                        self.feature.backward_bulk_size
+                        / self.feature.backward_bulk_duration
+                    )
+                except:
+                    return 0
         return 0
