@@ -1,5 +1,4 @@
 import numpy
-from scipy import stats as stat
 
 from .context.packet_direction import PacketDirection
 
@@ -78,9 +77,11 @@ class ResponseTime:
         """
         mode = -1
         if len(self.get_dif()) != 0:
-            mode = float(stat.mode(self.get_dif())[0])
+            # mode = float(stat.mode(self.get_dif())[0])
+            values, counts = numpy.unique(self.get_dif())[0], return_counts=True)
+            m = counts.argmax()            
 
-        return mode
+        return values[m]
 
     def get_skew(self) -> float:
         """Calculates the skew of the of time differences.
